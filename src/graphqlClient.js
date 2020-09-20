@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
 
-const endpoint = 'http://localhost:8000/graphql';
+const endpoint = 'https://polar-harbor-28097.herokuapp.com/graphql';
 
 export const client = new GraphQLClient(endpoint, { headers: {} });
