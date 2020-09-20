@@ -32,8 +32,8 @@ const Card = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-  console.log(word);
+  }, [id]);
+  //console.log(word);
   return (
     <div>
       <h1>Card</h1>
