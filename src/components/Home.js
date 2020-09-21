@@ -25,8 +25,8 @@ const ADD_WORD = gql`
 const Home = () => {
   const [wordList, setwordList] = useState([]);
   const [searchWord, setSearchWord] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, seterror] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, seterror] = useState(false);
   const [addWord, setaddWord] = useState('');
 
   const handleSearchInputChange = (e) => {
