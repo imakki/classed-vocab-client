@@ -25,8 +25,8 @@ const ADD_WORD = gql`
 const Home = () => {
   const [wordList, setwordList] = useState([]);
   const [searchWord, setSearchWord] = useState('');
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, seterror] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, seterror] = useState(false);
   const [addWord, setaddWord] = useState('');
 
   const handleSearchInputChange = (e) => {
@@ -89,7 +89,7 @@ const Home = () => {
   }, [addWord]);
 
   return wordList && wordList.length ? (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <h1>Vocabulary App</h1>
       <input
         type="text"
@@ -97,11 +97,23 @@ const Home = () => {
         value={searchWord}
         onChange={handleSearchInputChange}
       />
-      <ul>
+      <ul style={{ textAlign: 'left' }}>
         {wordList.map((d) => {
           return (
             <li key={d._id}>
               <Link to={`/card/${d._id}`}>{d.word}</Link>
+              {d.definitions.map((def) => {
+                return (
+                  <div>
+                    <h3>{def.etymologies ? 'Etymologies' : ''}</h3>
+                    <p>{def.etymologies}</p>
+                    <h3>Definition</h3>
+                    <p>{def.definitions}</p>
+                    <h3>Examples</h3>
+                    <p>{def.examples}</p>
+                  </div>
+                );
+              })}
             </li>
           );
         })}

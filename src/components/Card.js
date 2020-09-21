@@ -33,11 +33,23 @@ const Card = () => {
         console.log(err);
       });
   }, [id]);
-  //console.log(word);
+  console.log(word);
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <h1>Card</h1>
-      <h3>{word.word}</h3>
+      <h3>{word?.word}</h3>
+      {word?.definitions?.map((def) => {
+        return (
+          <div>
+            <h3>{def.etymologies ? 'Etymologies' : ''}</h3>
+            <p>{def.etymologies}</p>
+            <h3>Definition</h3>
+            <p>{def.definitions}</p>
+            <h3>Examples</h3>
+            <p>{def.examples}</p>
+          </div>
+        );
+      })}
       <Link to="/">Home</Link>
     </div>
   );
